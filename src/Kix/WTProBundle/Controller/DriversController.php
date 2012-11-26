@@ -103,7 +103,7 @@ class DriversController extends Controller
             throw $this->createNotFoundException(sprintf('Driver with id %s does not exist', $id));
         }
 
-        $driver->setIsActive(!$driver->getIsActive());
+        $driver->toggleActive();
         $em->persist($driver);
         $em->flush();
 

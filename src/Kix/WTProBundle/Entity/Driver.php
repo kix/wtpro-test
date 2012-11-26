@@ -214,6 +214,11 @@ class Driver
         }
     }
 
+    public function toggleActive()
+    {
+        $this->isActive = !$this->isActive;
+    }
+
     public function toArray()
     {
         return array(
