@@ -1,0 +1,46 @@
+{% extends 'KixWTProBundle::layout.html.twig' %}
+{% block content %}
+<table>
+    <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Is active</th>
+    <th>Can drive models</th>
+    <th>Age</th>
+    <th>Phone</th>
+    <th>Actions</th>
+    </thead>
+{% for driver in drivers %}
+    <tr data-driver-id="{{ driver.id }}">
+        <td class="id">{{ driver.id }}</td>
+        <td class="name">{{ driver.lastName }}, {{ driver.lastName }}</td>
+        <td class="active">{% if driver.isActive %}true{% else %}false{% endif %}</td>
+        <td class="models">
+            {% for model in driver.canDriveModels %}
+                {{ model }},
+            {% endfor %}
+        </td>
+        <td class="age">{{ driver.age }}</td>
+        <td class="phone">{{ driver.phone }}</td>
+        <td class="actions">
+            <a href={{ path('wtpro_drivers_form', {'id': driver.id}) }}>Edit</a>
+            <a class="ajax" href={{ path('wtpro_drivers_toggle', {'id': driver.id}) }}>Toggle activity</a>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+
+<ul class="pages">
+{% for page in 1..pages %}
+    <li>
+        {% if page == currentPage %}
+        {{ page }}
+        {% else %}
+        <a href="{{ path('wtpro_drivers_list', {'page':page}) }}">
+            {{ page }}
+        </a>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

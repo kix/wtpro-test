@@ -1,0 +1,8 @@
+{% extends 'KixWTProBundle::layout.html.twig' %}
+{% block content %}
+<form action="{{ path('wtpro_drivers_form', {'id': id}) }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'KixWTProBundle::layout.html.twig' %}
+{% block content %}
+<ul>
+{% for model in models %}
+    <li>
+        {{ model }}
+        <a href="{{ path("wtpro_models_form", {'id': model.id}) }}">View/edit</a>
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,32 @@
+<script type="text/javascript" src="http://yandex.st/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(".actions .ajax").click(function(e){
+            e.preventDefault();
+
+            $.getJSON($(this).attr("href"), function(response) {
+                $("tr[data-driver-id="+response.driver.id+"] .active").html(response.driver.isActive.toString());
+
+                console.log(response);
+
+            })
+        })
+    })
+</script>
+<style type="text/css">
+    ul.pages {
+        clear: both;
+    }
+    ul.pages li {
+        float: left;
+        list-style: none;
+        padding: 0 5px;
+    }
+    .actions li {
+        float: left;
+        padding: 0 5px;
+    }
+</style>
+{% include 'KixWTProBundle::nav.html.twig' %}
+{% block content %}
+{% endblock %}
