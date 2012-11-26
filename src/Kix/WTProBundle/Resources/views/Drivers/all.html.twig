@@ -13,7 +13,7 @@
 {% for driver in drivers %}
     <tr data-driver-id="{{ driver.id }}">
         <td class="id">{{ driver.id }}</td>
-        <td class="name">{{ driver.lastName }}, {{ driver.lastName }}</td>
+        <td class="name">{{ driver.lastName }}, {{ driver.firstName }}</td>
         <td class="active">{% if driver.isActive %}true{% else %}false{% endif %}</td>
         <td class="models">
             {% for model in driver.canDriveModels %}
