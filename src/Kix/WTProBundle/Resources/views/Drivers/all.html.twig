@@ -23,8 +23,8 @@
         <td class="age">{{ driver.age }}</td>
         <td class="phone">{{ driver.phone }}</td>
         <td class="actions">
-            <a href={{ path('wtpro_drivers_form', {'id': driver.id}) }}>Edit</a>
-            <a class="ajax" href={{ path('wtpro_drivers_toggle', {'id': driver.id}) }}>Toggle activity</a>
+            <a href="{{ path('wtpro_drivers_form', {'id': driver.id}) }}">Edit</a>
+            <a class="ajax" href="{{ path('wtpro_drivers_toggle', {'id': driver.id}) }}">Toggle activity</a>
         </td>
     </tr>
 {% endfor %}
